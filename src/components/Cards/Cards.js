@@ -14,7 +14,7 @@ const Cards = ({ data }) => {
     const { cases, deaths, recovered } = data.reports[0];
     return (
         <div className={styles.worldStatistics}>
-            <h2>Ситуация в мире:</h2>
+            <h2 className={styles.header}>Ситуация в мире:</h2>
             <div className={styles.cards}>
                 <Card header='Инфицирований'
                     quantity={cases}

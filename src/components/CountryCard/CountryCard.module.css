@@ -13,4 +13,22 @@
 .countryName {
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.stat {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.countryCases {
+    font-size: 20px;
+    border-bottom: 2px solid #7f7fff;
+}
+
+.countryDeaths {
+    font-size: 20px;
+    border-bottom: 2px solid #ff7f7f;
 }
