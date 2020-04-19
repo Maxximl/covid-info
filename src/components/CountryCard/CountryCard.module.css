@@ -1,0 +1,16 @@
+.card {
+    background-image: url('../../images/country-card.jpg');
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    margin: 0 20px;
+    color: #FFF;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.countryName {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}

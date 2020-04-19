@@ -1,0 +1,12 @@
+.cards {
+    display: flex;
+}
+
+.topCountries {
+    margin-top: 60px;
+
+}
+
+.countriesHeader {
+    margin-left: 20px;
+}

@@ -1,6 +1,9 @@
 .cards {
     display: flex;
     justify-content: center;
-    border: 2px solid black;
-    margin-top: 60px;
+    height: 200px;
+}
+
+.worldStatistics {
+    margin-top: 40px;
 }

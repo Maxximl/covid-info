@@ -1,5 +1,40 @@
 .card {
-    width: 200px;
-    height: 100px;
-    border: 2px solid red;
+    width: 250px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #fff;
+    margin: 10px 30px;
+    padding: 10px 20px;
+    font-family: Roboto, sans-serif;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition: all 1s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.header {
+    color: rgb(158, 139, 139);
+    font-size: 18px;
+}
+
+.quantity {
+    font-size: 22px;
+}
+
+.infected {
+    border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+}
+  
+.recovered{
+    border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+}
+  
+.deaths{
+    border-bottom: 10px solid rgba(255, 0, 0, 0.5);
 }

@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './App.module.css';
 import AppHeader from './components/AppHeader/AppHeader'
-import Content from './components/Content/Content';
+import Cards from './components/Cards/Cards';
+import { fetchData, fetchCountryData } from './api/index';
+import CountryCards from './components/CountryCards/CountryCards';
 
+export default class App extends Component {
 
-
-const App = () => {
-    return <div className={ styles.container }>
-        <AppHeader/>
-        <Content/>
-    </div>
+    state = {
+        data: {},
+        countryData: {}
+    }
+   async componentDidMount() {
+        const fetchedData = await fetchData();
+        
+        this.setState({data: fetchedData});
+    }
+    render() {
+        const { data, countryData } = this.state;
+        return (
+        <div className={ styles.container }>
+            <AppHeader />
+            <Cards data ={data}/>
+            <CountryCards data={data} />
+        </div>
+        )
+    }
 }
-
-export default App;
