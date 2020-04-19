@@ -1,7 +1,8 @@
 
 
 const url = 'https://covid19-server.chrismichael.now.sh/api/v1/AllReports';
-const countryUrl = 'https://covid19-server.chrismichael.now.sh/api/v1/ReportsByCountries/'
+const countryUrl = 'https://covid19-server.chrismichael.now.sh/api/v1/ReportsByCountries/';
+const urlForChart = 'https://covid19.mathdro.id/api/daily';
 
 export const fetchData = async () => {
     try {
@@ -15,12 +16,16 @@ export const fetchData = async () => {
 
 }
 
-export const fetchCountryData = async (country) => {
+export const fetchDailyData = async () => {
     try {
+        const data = await fetch(`${urlForChart}`).then(r => r.json());
 
-        const data = await fetch(`${countryUrl}${country}`).then(r => r.json());
-        return data;
-
+        const modifiedData = data.map((dailyData) => ({
+            confirmed: dailyData.confirmed.total,
+            deaths: dailyData.deaths.total,
+            date: dailyData.reportDate
+        }))
+        return modifiedData;
     } catch (error) {
         
     }
