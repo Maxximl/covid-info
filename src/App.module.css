@@ -10,3 +10,7 @@ body {
     width: 100%;
     align-items: center;
 }
+
+.cardsContainer {
+    height: 800px;
+}

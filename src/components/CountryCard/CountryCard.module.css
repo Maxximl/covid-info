@@ -32,3 +32,13 @@
     font-size: 20px;
     border-bottom: 2px solid #ff7f7f;
 }
+
+.favoritePanel {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.favoritePanel img {
+    cursor: pointer;
+}

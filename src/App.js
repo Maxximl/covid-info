@@ -21,8 +21,11 @@ export default class App extends Component {
     return (
       <div className={styles.container}>
         <AppHeader />
-        <Cards data={data} />
-        <CountryCards data={data} />
+        <div className={styles.cardsContainer}>
+          <Cards data={data} />
+          <CountryCards data={data} />
+        </div>
+
         <Chart />
       </div>
     );

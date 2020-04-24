@@ -7,7 +7,7 @@ const Cards = ({ data }) => {
   if (!data.reports)
     return (
       <div className={styles.container}>
-        <div>
+        <div className={styles.spinner}>
           <Spinner />
         </div>
       </div>
@@ -15,7 +15,6 @@ const Cards = ({ data }) => {
   const { cases, deaths, recovered } = data.reports[0];
   return (
     <div className={styles.container}>
-      <h2 className={styles.header}>Ситуация в мире:</h2>
       <div className={styles.cards}>
         <Card header="Инфицирований" quantity={cases} type="infected" />
         <Card header="Смертей" quantity={deaths} type="deaths" />

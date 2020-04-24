@@ -9,7 +9,7 @@ const CountryCards = ({ data }) => {
   const topCountries = data.reports[0].table[0].slice(1, 6).map((item) => {
     const { Country, TotalCases, TotalDeaths } = item;
     return (
-      <CountryCard country={Country} cases={TotalCases} deaths={TotalDeaths} />
+      <CountryCard key={Country} country={Country} cases={TotalCases} deaths={TotalDeaths} />
     );
   });
   return (
