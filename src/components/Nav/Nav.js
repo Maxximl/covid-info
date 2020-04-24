@@ -1,18 +1,16 @@
-import React from 'react';
-import styles from './Nav.module.css';
-
-
+import React from "react";
+import styles from "./Nav.module.css";
 
 const Nav = () => {
-    return (
+  return (
     <div>
-        <ul className={styles.navbar}>
-            <li>Статистика</li>
-            <li>Графики</li>
-            <li>Карта</li>
-        </ul>
+      <ul className={styles.navbar}>
+        <li>Статистика</li>
+        <li>Графики</li>
+        <li>Карта</li>
+      </ul>
     </div>
-    )
-}
+  );
+};
 
 export default Nav;

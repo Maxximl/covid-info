@@ -1,15 +1,13 @@
 .navbar {
-    display: flex;
-    
+  display: flex;
 }
 .navbar li {
-    list-style-type: none; 
-    margin-right: 20px;
-    font-size: 24px;
-    color: #fff;
+  list-style-type: none;
+  margin-right: 20px;
+  font-size: 24px;
+  color: #fff;
 }
 
 .navbar li:hover {
-    color: #fb9292;
-    
+  color: #fb9292;
 }

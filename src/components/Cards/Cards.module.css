@@ -1,13 +1,13 @@
 .cards {
-    display: flex;
-    justify-content: center;
-    height: 200px;
+  display: flex;
+  justify-content: center;
+  height: 200px;
 }
 
-.worldStatistics {
-    margin-top: 80px;
+.container {
+  margin-top: 80px;
 }
 
 .header {
-    margin-left: 30px;
+  margin-left: 30px;
 }

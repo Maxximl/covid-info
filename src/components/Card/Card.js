@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Card.module.css';
 import cn from 'classnames';
 import CountUp from 'react-countup';
+
+
 const Card = ({ header, quantity, type}) => {
     return (
         <div className={cn(styles.card, styles[`${type}`])}>
