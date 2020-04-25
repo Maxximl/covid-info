@@ -3,8 +3,8 @@ import styles from "./Cards.module.css";
 import Card from "../Card/Card";
 import Spinner from "../Spinner/Spinner";
 
-const Cards = ({ data }) => {
-  if (!data.reports)
+const Cards =  ({ data }) => {
+  if (!data)
     return (
       <div className={styles.container}>
         <div className={styles.spinner}>
@@ -12,7 +12,7 @@ const Cards = ({ data }) => {
         </div>
       </div>
     );
-  const { cases, deaths, recovered } = data.reports[0];
+  const { cases, deaths, recovered } = data;
   return (
     <div className={styles.container}>
       <div className={styles.cards}>

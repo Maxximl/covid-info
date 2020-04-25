@@ -6,7 +6,8 @@ const urlForChart = "https://covid19.mathdro.id/api/daily";
 export const fetchData = async () => {
   try {
     const data = await fetch(url).then((r) => r.json());
-    return data;
+    console.log(data.reports[0]);
+    return data.reports[0];
   } catch (error) {}
 };
 

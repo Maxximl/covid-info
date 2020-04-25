@@ -8,7 +8,7 @@ import Chart from "./components/Chart/Chart";
 
 export default class App extends Component {
   state = {
-    data: {},
+    data: null,
     countryData: {},
   };
   async componentDidMount() {
@@ -25,7 +25,6 @@ export default class App extends Component {
           <Cards data={data} />
           <CountryCards data={data} />
         </div>
-
         <Chart />
       </div>
     );

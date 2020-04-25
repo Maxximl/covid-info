@@ -1,5 +1,6 @@
 .navbar {
   display: flex;
+  margin-right: 20px;
 }
 .navbar li {
   list-style-type: none;
