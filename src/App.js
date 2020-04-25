@@ -5,6 +5,9 @@ import Cards from "./components/Cards/Cards";
 import { fetchData } from "./api/index";
 import CountryCards from "./components/CountryCards/CountryCards";
 import Chart from "./components/Chart/Chart";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import SearchPage from "./components/CountryInfo/CountryInfo";
+import CountryInfoPage from "./components/CountryInfo/CountryInfo";
 
 export default class App extends Component {
   state = {
@@ -20,12 +23,23 @@ export default class App extends Component {
     const { data } = this.state;
     return (
       <div className={styles.container}>
-        <AppHeader />
-        <div className={styles.cardsContainer}>
-          <Cards data={data} />
-          <CountryCards data={data} />
+        <div className={styles.bg}>
+          <Router>
+            <AppHeader/>
+            <Route
+              exact
+              path="/statistics"
+              render={() => (
+                <div className={styles.cardsContainer}>
+                  <Cards data={data} />
+                  <CountryCards data={data} />
+                  <Chart />
+                </div>
+              )}
+            />
+            <Route exact path="/" component={CountryInfoPage} />
+          </Router>
         </div>
-        <Chart />
       </div>
     );
   }

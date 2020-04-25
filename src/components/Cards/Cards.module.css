@@ -1,15 +1,20 @@
 .cards {
   display: flex;
   justify-content: center;
-  height: 200px;
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  flex-wrap: wrap;
+ 
 }
 
 .container {
-  margin-top: 90px;
-  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 90%;
+  margin: 80px auto 0px auto;
+  min-height: 300px;
 }
 
 .header {

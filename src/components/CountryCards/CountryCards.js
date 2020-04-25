@@ -13,7 +13,6 @@ const CountryCards = ({ data }) => {
   });
   return (
     <div className={styles.topCountries}>
-      <h2 className={styles.countriesHeader}>Топ стран:</h2>
       <div className={styles.cards}>{topCountries}</div>
     </div>
   );

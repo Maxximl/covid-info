@@ -1,12 +1,14 @@
 import React from 'react';
-import styles from './Search.module.css';
+import styles from './Maps.module.css';
 
-const Search = () => {
+
+const Maps = () => {
+
     return (
         <div className={styles.container}>
-            
+            Карта
         </div>
     )
 }
 
-export default Search;
+export default Maps;

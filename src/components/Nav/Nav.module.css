@@ -5,11 +5,15 @@
 .navbar li {
   list-style-type: none;
   margin-right: 20px;
-  font-size: 24px;
+  font-size: 18px;
   color: #fff;
   cursor: pointer;
 }
 
 .navbar li:hover {
   color: #fb9292;
+}
+
+.container {
+  height: 60px;
 }
