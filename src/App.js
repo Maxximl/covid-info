@@ -23,23 +23,26 @@ export default class App extends Component {
     const { data } = this.state;
     return (
       <div className={styles.container}>
-        <div className={styles.bg}>
-          <Router>
-            <AppHeader/>
-            <Route
-              exact
-              path="/statistics"
-              render={() => (
-                <div className={styles.cardsContainer}>
-                  <Cards data={data} />
-                  <CountryCards data={data} />
-                  <Chart />
-                </div>
-              )}
-            />
-            <Route exact path="/" component={CountryInfoPage} />
-          </Router>
-        </div>
+        <Router>
+          <div className={styles.headerContainer}>
+            <div className={styles.bg}>
+              <AppHeader />
+            </div>
+          </div>
+
+          <Route
+            exact
+            path="/statistics"
+            render={() => (
+              <div className={styles.cardsContainer}>
+                <Cards data={data} />
+                <CountryCards data={data} />
+                <Chart />
+              </div>
+            )}
+          />
+          <Route exact path="/" component={CountryInfoPage} />
+        </Router>
       </div>
     );
   }

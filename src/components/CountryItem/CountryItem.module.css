@@ -1,10 +1,21 @@
-div.listItem {
+.listItem {
     width: 300px;
-    height: 200px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    height: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    margin: 10px;
     padding: 10px;
     cursor: pointer;
     box-sizing: border-box;
-}
+    color: #505050;
+    display: flex;
+    align-items: center;
+    margin: 10px auto;
+  }
+
+  .selected {
+    background-color: #ccc4c4;
+  }
+
+  .listItem:hover {
+    background-color: #ccc4c4;
+  }

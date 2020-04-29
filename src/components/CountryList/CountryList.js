@@ -1,47 +1,73 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import styles from "./CountryList.module.css";
 import { fetchCountriesList } from "../../api";
+import CountryItem from "../CountryItem/CountryItem";
 
-const CountryList = () => {
-  const [countries, setCountries] = useState([]);
-  const [searchedCountry, setSearchedCountry] = useState('');
+export default class CountryList extends Component {
+  state = {
+    countries: [],
+    searched: "",
+    selected: "World",
+  };
 
-  useEffect(() => {
-    const fetchAPI = async () => {
-      setCountries(await fetchCountriesList());
-      console.log(countries);
-    };
+  async componentDidMount() {
+    const countries = await fetchCountriesList();
+    console.log(countries);
+    this.setState({ countries });
+  }
 
-    fetchAPI();
-  }, []);
+  handleSearching = (event) => {
+    this.setState({ searched: event.target.value });
+  };
 
-  if (countries.length === 0) return <h2>Пусто</h2>;
+  onItemSelected = (name) => {
+    this.setState({ selected: name });
+    console.log(name);
+    this.props.onCountrySelected(name);
+  };
 
-  const list = searchedCountry !== '' ? countries.filter((country) => country.Country.indexOf(searchedCountry) !== -1).map((country) => (
-    <div key={country.ISO2} className={styles.listItem}>
-      {country.Country}
-    </div>
+  renderList = (countries) => {
+    const { selected } = this.state;
 
-  ))  :
-   countries.map((country) => (
-    <div key={country.ISO2} className={styles.listItem}>
-      {country.Country}
-    </div>
+    return countries.map((country) => {
+        return (
+          <CountryItem
+            country={country}
+            onClickHandle={this.onItemSelected}
+            isSelected={selected === country.Country}
+          />
+        );
+      })
+  };
 
-  )) 
-  
-  return (
-    <div className={styles.container}>
-      <div>
+  searchCountries = (countries, searched) => {
+    if (searched === "") {
+      return countries;
+    }
+
+    return countries.filter(
+      (country) =>
+        country.Country.toLowerCase().indexOf(searched.toLowerCase()) !== -1
+    );
+  };
+
+  render() {
+    const { countries, searched } = this.state;
+
+    if (countries.length === 0) return <h2>Загрузка стран..</h2>;
+
+    const visibleItems = this.renderList(
+      this.searchCountries(countries, searched)
+    );
+    return (
+      <div className={styles.container}>
         <input
           className={styles.countrySearch}
-          value={searchedCountry}
-          onChange={(event) => setSearchedCountry(event.target.value)}
+          value={searched}
+          onChange={this.handleSearching}
         />
-        {list}
+        <div className={styles.list}>{visibleItems}</div>
       </div>
-    </div>
-  );
-};
-
-export default CountryList;
+    );
+  }
+}
