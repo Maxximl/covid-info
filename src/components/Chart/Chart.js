@@ -1,46 +1,51 @@
 import React, { useState, useEffect } from "react";
-import { fetchDailyData, fetchData } from "../../api";
-import { Line, Bar } from "react-chartjs-2";
+import { fetchDaily } from "../../api";
+import { Line } from "react-chartjs-2";
 
 import styles from "./Chart.module.css";
 
-const Chart = () => {
+const Chart = ({ country }) => {
   const [dailyData, setDailyData] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
-      setDailyData(await fetchDailyData());
-      console.log(dailyData);
+      setDailyData(await fetchDaily(country));
     };
 
     fetchAPI();
-  }, []);
+  }, [country]);
 
-  const lineChart = dailyData.length ? (
-    <Line
-      data={{
-        labels: dailyData.map(({ date }) => date),
-        datasets: [
-          {
-            data: dailyData.map(({ confirmed }) => confirmed),
-            label: "Инфицировано",
-            borderColor: "#3333ff",
-            fill: true,
-          },
-          {
-            data: dailyData.map(({ deaths }) => deaths),
-            label: "Смертей",
-            borderColor: "red",
-            backgroundColor: "rgba(255, 0, 0, 0.5)",
+  const chartData = {
+    labels: dailyData ? dailyData.map(({ date }) => date) : [],
+    datasets: [
+      {
+        data: dailyData ? dailyData.map(({ confirmed }) => confirmed) : [],
+        label: "Инфицировано",
+        borderColor: "#3333ff",
+        fill: true,
+      },
+      {
+        data: dailyData ? dailyData.map(({ deaths }) => deaths) : [],
+        label: "Смертей",
+        borderColor: "red",
+        backgroundColor: "rgba(255, 0, 0, 0.5)",
 
-            fill: true,
-          },
-        ],
-      }}
-    />
-  ) : null;
+        fill: true,
+      },
+      {
+        data: dailyData ? dailyData.map(({ recovered }) => recovered) : [],
+        label: "Выздоровлений",
+        borderColor: "green",
+      },
+    ],
+  };
 
-  return <div className={styles.container}>{lineChart}</div>;
+  return (
+    <div className={styles.container}>
+      <h2>{country}</h2>
+      <Line data={chartData} />
+    </div>
+  );
 };
 
 export default Chart;

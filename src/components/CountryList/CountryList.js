@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styles from "./CountryList.module.css";
 import { fetchCountriesList } from "../../api";
 import CountryItem from "../CountryItem/CountryItem";
+import Spinner from "../Spinner/Spinner";
+
 
 export default class CountryList extends Component {
   state = {
@@ -12,14 +14,10 @@ export default class CountryList extends Component {
 
   async componentDidMount() {
     const countries = await fetchCountriesList();
-    console.log(countries);
     this.setState({ countries });
   }
 
-  handleSearching = (event) => {
-    this.setState({ searched: event.target.value });
-  };
-
+ 
   onItemSelected = (name) => {
     this.setState({ selected: name });
     console.log(name);
@@ -29,9 +27,10 @@ export default class CountryList extends Component {
   renderList = (countries) => {
     const { selected } = this.state;
 
-    return countries.map((country) => {
+    return countries.map((country, i) => {
         return (
           <CountryItem
+          key={i}
             country={country}
             onClickHandle={this.onItemSelected}
             isSelected={selected === country.Country}
@@ -52,22 +51,23 @@ export default class CountryList extends Component {
   };
 
   render() {
-    const { countries, searched } = this.state;
+    const { countries } = this.state;
+    const { searched } = this.props;  
 
-    if (countries.length === 0) return <h2>Загрузка стран..</h2>;
+    if (countries.length === 0) return (
+      <div className={styles.container}>
+          <Spinner/>
+      </div>
+    )
 
     const visibleItems = this.renderList(
       this.searchCountries(countries, searched)
     );
     return (
       <div className={styles.container}>
-        <input
-          className={styles.countrySearch}
-          value={searched}
-          onChange={this.handleSearching}
-        />
         <div className={styles.list}>{visibleItems}</div>
       </div>
     );
   }
 }
+

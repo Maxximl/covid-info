@@ -10,6 +10,8 @@
     display: flex;
     align-items: center;
     margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
   }
 
   .selected {
@@ -18,4 +20,9 @@
 
   .listItem:hover {
     background-color: #ccc4c4;
+  }
+
+  .continent {
+      color: #aeacac;
+      font-size: 14px;
   }

@@ -9,7 +9,8 @@ const CountryItem = ({ country, onClickHandle, isSelected }) => {
       className={ cn(styles.listItem, isSelected ? styles.selected : null) }
       onClick={() => onClickHandle(country.Country)}
     >
-      {country.Country}
+      <div>{country.Country}</div>
+      <div className={styles.continent}>{country.Continent}</div>
     </div>
   );
 };

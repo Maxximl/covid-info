@@ -1,14 +1,12 @@
 import React from 'react';
-import styles from './Maps.module.css';
+import styles from './ChartsPage.module.css';
 
-
-const Maps = () => {
-
+const ChartsPage = () => {
     return (
         <div className={styles.container}>
-            Карта
+
         </div>
     )
 }
 
-export default Maps;
+export default ChartsPage;

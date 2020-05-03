@@ -3,25 +3,18 @@
   width: 380px;
   width: 380px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
 }
 
 .list {
     overflow-y: scroll;
     height: 360px;
+    padding: 5px;
+    width: 100%;
 }
 
-.countrySearch {
-  width: 340px;
-  height: 30px;
-  margin: 10px;
-  border-radius: 10px;
-  outline: none;
-  border: none;
-  border: solid 2px #f2f2f2;
-  font-size: 18px;
-  padding: 0 10px;
-}
 
-.countrySearch:focus {
-  border: solid 2px#6651bb;
-}
