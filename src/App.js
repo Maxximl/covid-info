@@ -4,7 +4,8 @@ import AppHeader from "./components/AppHeader/AppHeader";
 import { fetchData } from "./api/index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CountryInfoPage from "./components/CountryInfo/CountryInfo";
-import StatisticsPage from './pages/StatisticsPage';
+import MapPage from './pages/MapPage';
+import ChartsPage from "./pages/ChartsPage";
 
 export default class App extends Component {
   state = {
@@ -26,13 +27,17 @@ export default class App extends Component {
               <AppHeader />
             </div>
           </div>
-
+          <Route exact path="/" component={CountryInfoPage} />
           <Route
             exact
-            path="/statistics"
-            render={ () => <StatisticsPage data={data} /> }
+            path="/charts"
+            component={ChartsPage}
           />
-          <Route exact path="/" component={CountryInfoPage} />
+          <Route
+            exact
+            path="/map"
+            component={MapPage}
+          />
         </Router>
       </div>
     );

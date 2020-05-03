@@ -10,9 +10,9 @@ export default class VirusMap extends Component {
     viewport: {
       latitude: 30.1231,
       longitude: 10.12312,
-      zoom: 0.2,
-      width: "380px",
-      height: "400px",
+      zoom: this.props.zoom,
+      width: "100%",
+      height: "100%",
     },
   };
 
@@ -31,13 +31,20 @@ export default class VirusMap extends Component {
       return (
         <Marker
           key={place.name}
-          longitude={Number.parseFloat(place.longitude)}
-          latitude={Number.parseFloat(place.latitude)}
+          longitude={place.longitude}
+          latitude={place.latitude}
         >
           <div
             className={styles.marker}
             style={{ width: `${circleSize}px`, height: `${circleSize}px` }}
-            onClick={() => this.props.onCountrySelected(place.name)}
+            onClick={() => {this.props.onCountrySelected(place.name);
+              this.setState({viewport: {latitude: place.latitude,
+                longitude: place.longitude,
+                zoom: 2,
+                width: "100%",
+                height: "100%",
+              }})
+            }}
           ></div>
           <div className={styles.placeInfo}>
             <div className={styles.infoTitle}>{place.name}</div>
@@ -54,7 +61,7 @@ export default class VirusMap extends Component {
 
   render() {
     const { places, viewport } = this.state;
-    if (places.length === 0) return <div className={styles.container}></div>;
+    if (places.length === 0) return <div className={styles.container}>LOading...</div>;
 
     return (
       <div className={styles.container}>

@@ -2,18 +2,23 @@
   display: flex;
   margin-right: 20px;
 }
-.navbar li {
+.link {
   list-style-type: none;
   margin-right: 20px;
   font-size: 18px;
   color: #fff;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.navbar li:hover {
+.link:hover {
   color: #fb9292;
 }
 
 .container {
   height: 60px;
+}
+
+.activeLink {
+  color: #fb9292;
 }

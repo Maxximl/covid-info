@@ -18,6 +18,7 @@ const ChartSearch = ({ handleSearch }) => {
           className={styles.chartSearch}
           onChange={(event) => setSearched(event.target.value)}
           placeholder='Введите название страны'
+          required
         ></input>
         <button type="submit" className={styles.searchButton}>
           Найти

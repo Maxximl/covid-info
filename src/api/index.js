@@ -4,7 +4,7 @@ const url = "https://covid19-server.chrismichael.now.sh/api/v1/AllReports";
 const urlForChart = "https://covid19.mathdro.id/api/daily";
 const urlForTotal = "https://api.covid19api.com/summary";
 //const urlForCountries = "https://api.covid19api.com/countries";
-const urlDaily = 'https://api.covid19api.com/country/';
+const urlDaily = "https://api.covid19api.com/country/";
 
 export const fetchData = async () => {
   try {
@@ -37,13 +37,11 @@ export const fetchDaily = async (country) => {
       active: item.Active,
       date: item.Date,
     }));
-    console.log(modifiedData);
     return modifiedData;
-  }
-  catch(err) {
+  } catch (err) {
     console.log(err);
   }
-}
+};
 
 export const fetchTotal = async () => {
   try {
@@ -93,10 +91,16 @@ export const getMapData = async () => {
         "x-rapidapi-host": "covid19-data.p.rapidapi.com",
         "x-rapidapi-key": "781bcee0c5msh078c84f3a257bd2p1e7140jsn1348ca49402f",
       },
-    }).then(response => response.json());
-    const modified =  data.features.map((item) => item.properties).filter( item => item.longitude !== '');
+    }).then((response) => response.json());
+    const modified = data.features
+      .map((item) => item.properties)
+      .filter((item) => item.longitude !== "")
+      .map((item) => ({
+        ...item,
+        longitude: Number.parseFloat(item.longitude),
+        latitude: Number.parseFloat(item.latitude),
+      }));
     return modified;
-
   } catch (error) {
     console.log(error);
   }

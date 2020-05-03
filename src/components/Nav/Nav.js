@@ -1,17 +1,40 @@
 import React from "react";
 import styles from "./Nav.module.css";
-import loupe from './img/loupe.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
     <div className={styles.container}>
       <ul className={styles.navbar}>
-        <NavLink to='/statistics'><li>Статистика</li></NavLink>
-        <li>Графики</li>
-        <li>Карта</li>
-        <li>Избранное</li>
-        <NavLink to='/search'><li><img className={styles.loupe} src={loupe} alt="loupe"></img></li></NavLink>
+        <NavLink
+          to="/"
+          exact
+          className={styles.link}
+          activeClassName={styles.activeLink}
+        >
+          <li>Главная</li>
+        </NavLink>
+        <NavLink
+          to="charts"
+          className={styles.link}
+          activeClassName={styles.activeLink}
+        >
+          <li>Графики</li>
+        </NavLink>
+        <NavLink
+          to="map"
+          className={styles.link}
+          activeClassName={styles.activeLink}
+        >
+          <li>Карта</li>
+        </NavLink>
+        <NavLink
+          to="my_page"
+          className={styles.link}
+          activeClassName={styles.activeLink}
+        >
+          <li>Моя страница</li>
+        </NavLink>
       </ul>
     </div>
   );

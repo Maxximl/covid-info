@@ -30,7 +30,10 @@ export default class CountryInfoPage extends Component {
                     <CountrySearch searched={searched} handleSearching={this.handleSearching} />
                     <CountryList onCountrySelected={this.onCountrySelected} searched={searched}/>
                 </div>
-                <VirusMap onCountrySelected={this.onCountrySelected}/>
+                <div className={styles.map}>
+                    <VirusMap onCountrySelected={this.onCountrySelected} zoom={0.2}/>
+                </div>
+                
             </div>
         )
     }
