@@ -4,7 +4,7 @@ const url = "https://covid19-server.chrismichael.now.sh/api/v1/AllReports";
 const urlForTotal = "https://api.covid19api.com/summary";
 const urlDaily = "https://api.covid19api.com/country/";
 const urlNews =
-  "http://newsapi.org/v2/top-headlines?country=ru&category=health&apiKey=07d9897b1d0d4094b3b1093134525cab";
+  "https://newsapi.org/v2/top-headlines?country=ru&category=health&apiKey=07d9897b1d0d4094b3b1093134525cab";
 
 export const fetchData = async () => {
   try {
