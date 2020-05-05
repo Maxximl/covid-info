@@ -1,0 +1,46 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marker {
+    background-color: red;
+    border-radius: 50%;
+    max-width: 50px;
+    max-height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.marker:hover  + .placeInfo {
+     display: flex;
+}
+
+.placeInfo {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    height: 100px;
+    color: rgb(90, 86, 86);
+    border-radius: 5px;
+    background-color: #FFF;
+}
+
+.placeInfo:hover {
+    display: flex;
+}
+
+.infoTitle {
+    margin-bottom: 20px;
+}

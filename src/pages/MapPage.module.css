@@ -1,0 +1,18 @@
+.container {
+    width: 80%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    margin-top: -400px;
+    background-color: #FFF;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+
+}
+
+
+

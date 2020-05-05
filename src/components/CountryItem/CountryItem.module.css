@@ -1,0 +1,28 @@
+.listItem {
+    width: 300px;
+    height: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: #505050;
+    display: flex;
+    align-items: center;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .selected {
+    background-color: #ccc4c4;
+  }
+
+  .listItem:hover {
+    background-color: #ccc4c4;
+  }
+
+  .continent {
+      color: #aeacac;
+      font-size: 14px;
+  }

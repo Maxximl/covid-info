@@ -1,0 +1,18 @@
+.container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    background-color: #FFF;
+    border-radius: 20px;
+    margin: -400px  auto;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.map {
+    width: 380px;
+    height: 400px;
+}

@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    width: 380px;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 100%;
+}
