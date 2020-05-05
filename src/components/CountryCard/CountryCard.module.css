@@ -3,7 +3,7 @@
     width: 200px;
     height: 200px;
     border-radius: 10px;
-    padding: 20px 10px;
+    padding: 10px 10px;
     box-sizing: border-box;
     margin: 0 20px;
     color: #FFF;
@@ -17,22 +17,35 @@
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
+    text-align: center;
+    height: 110px;
 }
 
+
 .stat {
-    margin-top: 40px;
+    margin-top: 10px;
+}
+
+.countryRecovered {
+    text-align: center;
+    font-size: 20px;
+    border-bottom: solid 2px #31801a;
+}
+
+.statContainer {
+    margin-top: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .countryCases {
     font-size: 20px;
-    border-bottom: 2px solid #7f7fff;
+    border-bottom: solid 2px #7f7fff;
 }
 
 .countryDeaths {
     font-size: 20px;
-    border-bottom: 2px solid #ff7f7f;
+    border-bottom: solid 2px #ff7f7f;
 }
 
 .favoritePanel {

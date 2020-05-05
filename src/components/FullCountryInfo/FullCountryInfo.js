@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import styles from './CountryInfo.module.css';
+import styles from './FullCountryInfo.module.css';
 import MiniCards from '../MiniCards/MiniCards';
 import CountryList from '../CountryList/CountryList';
 import VirusMap from '../VirusMap/VirusMap';
 import CountrySearch from '../CountrySearch/CountrySearch';
 
-export default class CountryInfoPage extends Component {
+export default class FullCountryInfo extends Component {
 
     state = {
         country: 'World',

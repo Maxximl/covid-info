@@ -1,9 +1,8 @@
 import React from 'react';
-import styles from './MainPage.module.css';
-import CountryInfoPage from '../components/CountryInfo/CountryInfo';
+import FullCountryInfo from '../components/FullCountryInfo/FullCountryInfo';
 const SearchPage = () => {
     return (
-        <CountryInfoPage/>
+        <FullCountryInfo/>
     )
 }
 

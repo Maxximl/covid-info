@@ -7,7 +7,7 @@
 }
 
 .topCountries {
-  margin-top: 100px;
+  margin-top: -300px;
   display: flex;
   flex-direction: column;
   align-items: center;

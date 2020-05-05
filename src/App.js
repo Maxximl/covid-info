@@ -1,24 +1,14 @@
 import React, { Component } from "react";
 import styles from "./App.module.css";
 import AppHeader from "./components/AppHeader/AppHeader";
-import { fetchData } from "./api/index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import CountryInfoPage from "./components/CountryInfo/CountryInfo";
+import MainPage from './pages/MainPage';
 import MapPage from './pages/MapPage';
 import ChartsPage from "./pages/ChartsPage";
+import NewsPage from './pages/NewsPage';
 
-export default class App extends Component {
-  state = {
-    data: null,
-    countryData: {},
-  };
-  async componentDidMount() {
-    const fetchedData = await fetchData();
+const  App = () => {
 
-    this.setState({ data: fetchedData });
-  }
-  render() {
-    const { data } = this.state;
     return (
       <div className={styles.container}>
         <Router>
@@ -27,7 +17,7 @@ export default class App extends Component {
               <AppHeader />
             </div>
           </div>
-          <Route exact path="/" component={CountryInfoPage} />
+          <Route exact path="/" component={MainPage} />
           <Route
             exact
             path="/charts"
@@ -38,8 +28,14 @@ export default class App extends Component {
             path="/map"
             component={MapPage}
           />
+          <Route
+            exact
+            path='/news'
+            component={NewsPage}
+          />
         </Router>
       </div>
     );
-  }
 }
+
+export default App;

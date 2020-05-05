@@ -20,7 +20,6 @@ export default class CountryList extends Component {
  
   onItemSelected = (name) => {
     this.setState({ selected: name });
-    console.log(name);
     this.props.onCountrySelected(name);
   };
 

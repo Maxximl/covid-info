@@ -29,11 +29,11 @@ const Nav = () => {
           <li>Карта</li>
         </NavLink>
         <NavLink
-          to="my_page"
+          to="news"
           className={styles.link}
           activeClassName={styles.activeLink}
         >
-          <li>Моя страница</li>
+          <li>Новости</li>
         </NavLink>
       </ul>
     </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./VirusMap.module.css";
-import { getMapData } from "../../api";
+import { fetchMapData } from "../../api";
 //import { YMaps, Map, Placemark } from "react-yandex-maps";
 import ReactMapGl, { Marker } from "react-map-gl";
 
@@ -17,13 +17,27 @@ export default class VirusMap extends Component {
   };
 
   async componentDidMount() {
-    this.setState({ places: await getMapData() });
+    this.setState({ places: await fetchMapData() });
   }
 
   setViewport = (viewport) => {
     this.setState({ viewport: viewport });
   };
 
+  handleCountrySelected = (place) => {
+    this.props.onCountrySelected(place.name);
+    this.setState((prevState) => {
+      return {
+        viewport: {
+          ...prevState.viewport,
+          latitude: place.latitude,
+          longitude: place.longitude,
+          zoom: 2,
+        }
+      }
+    })
+
+  }
   renderPoints = () => {
     const { places } = this.state;
     return places.map((place, id) => {
@@ -37,14 +51,7 @@ export default class VirusMap extends Component {
           <div
             className={styles.marker}
             style={{ width: `${circleSize}px`, height: `${circleSize}px` }}
-            onClick={() => {this.props.onCountrySelected(place.name);
-              this.setState({viewport: {latitude: place.latitude,
-                longitude: place.longitude,
-                zoom: 2,
-                width: "100%",
-                height: "100%",
-              }})
-            }}
+            onClick={() => this.handleCountrySelected(place)}
           ></div>
           <div className={styles.placeInfo}>
             <div className={styles.infoTitle}>{place.name}</div>
@@ -61,7 +68,7 @@ export default class VirusMap extends Component {
 
   render() {
     const { places, viewport } = this.state;
-    if (places.length === 0) return <div className={styles.container}>LOading...</div>;
+    if (places.length === 0) return <div className={styles.container}>Loading map...</div>;
 
     return (
       <div className={styles.container}>

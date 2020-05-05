@@ -1,28 +1,15 @@
 const url = "https://covid19-server.chrismichael.now.sh/api/v1/AllReports";
 // const countryUrl =
 //   "https://covid19-server.chrismichael.now.sh/api/v1/ReportsByCountries/";
-const urlForChart = "https://covid19.mathdro.id/api/daily";
 const urlForTotal = "https://api.covid19api.com/summary";
-//const urlForCountries = "https://api.covid19api.com/countries";
 const urlDaily = "https://api.covid19api.com/country/";
+const urlNews =
+  "http://newsapi.org/v2/top-headlines?country=ru&category=health&apiKey=07d9897b1d0d4094b3b1093134525cab";
 
 export const fetchData = async () => {
   try {
-    const data = await fetch(url).then((r) => r.json());
-    return data.reports[0];
-  } catch (error) {}
-};
-
-export const fetchDailyData = async () => {
-  try {
-    const data = await fetch(`${urlForChart}`).then((r) => r.json());
-
-    const modifiedData = data.map((dailyData) => ({
-      confirmed: dailyData.confirmed.total,
-      deaths: dailyData.deaths.total,
-      date: dailyData.reportDate,
-    }));
-    return modifiedData;
+    const data = await fetch(urlForTotal).then((r) => r.json());
+    return data.Countries;
   } catch (error) {}
 };
 
@@ -83,7 +70,7 @@ export const fetchCountriesList = async () => {
   } catch (error) {}
 };
 
-export const getMapData = async () => {
+export const fetchMapData = async () => {
   try {
     const data = await fetch("https://covid19-data.p.rapidapi.com/geojson-ww", {
       method: "GET",
@@ -105,3 +92,13 @@ export const getMapData = async () => {
     console.log(error);
   }
 };
+
+export const fetchNews = async () => {
+  try {
+    const data = await fetch(urlNews).then((response) => response.json());
+    return data.articles.filter( article => article.description.indexOf('вирус') !== -1);
+  } catch (err) {
+    console.log(err);
+  }
+};
+

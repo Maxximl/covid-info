@@ -5,7 +5,7 @@ import ChartSearch from '../components/ChartSearch/ChartSearch';
 
 
 const ChartsPage = ({data}) => {
-  const [countryName, setCountryName] = useState('Russia');
+  const [countryName, setCountryName] = useState('');
 
   const handleSearch = (country) => {
       setCountryName(country);
