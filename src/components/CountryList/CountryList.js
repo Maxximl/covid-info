@@ -1,44 +1,45 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./CountryList.module.css";
 import { fetchCountriesList } from "../../api";
 import CountryItem from "../CountryItem/CountryItem";
 import Spinner from "../Spinner/Spinner";
 
-
-export default class CountryList extends Component {
-  state = {
+const CountryList = ({ onCountrySelected, searched }) => {
+  const [state, setState] = useState({
     countries: [],
-    searched: "",
     selected: "World",
+  });
+
+  useEffect(() => {
+    const fetchAPI = async () => {
+      const countries = await fetchCountriesList();
+      setState((state) => ({ ...state, countries }));
+    };
+
+    fetchAPI();
+  }, []);
+
+  const onItemSelected = (name) => {
+    setState({ ...state, selected: name });
+    onCountrySelected(name);
   };
 
-  async componentDidMount() {
-    const countries = await fetchCountriesList();
-    this.setState({ countries });
-  }
-
- 
-  onItemSelected = (name) => {
-    this.setState({ selected: name });
-    this.props.onCountrySelected(name);
-  };
-
-  renderList = (countries) => {
-    const { selected } = this.state;
+  const renderList = (countries) => {
+    const { selected } = state;
 
     return countries.map((country, i) => {
-        return (
-          <CountryItem
+      return (
+        <CountryItem
           key={i}
-            country={country}
-            onClickHandle={this.onItemSelected}
-            isSelected={selected === country.Country}
-          />
-        );
-      })
+          country={country}
+          onClickHandle={onItemSelected}
+          isSelected={selected === country.Country}
+        />
+      );
+    });
   };
 
-  searchCountries = (countries, searched) => {
+  const searchCountries = (countries, searched) => {
     if (searched === "") {
       return countries;
     }
@@ -49,24 +50,21 @@ export default class CountryList extends Component {
     );
   };
 
-  render() {
-    const { countries } = this.state;
-    const { searched } = this.props;  
+  const { countries } = state;
 
-    if (countries.length === 0) return (
-      <div className={styles.container}>
-          <Spinner/>
-      </div>
-    )
-
-    const visibleItems = this.renderList(
-      this.searchCountries(countries, searched)
-    );
+  if (countries.length === 0)
     return (
       <div className={styles.container}>
-        <div className={styles.list}>{visibleItems}</div>
+        <Spinner />
       </div>
     );
-  }
-}
 
+  const visibleItems = renderList(searchCountries(countries, searched));
+  return (
+    <div className={styles.container}>
+      <div className={styles.list}>{visibleItems}</div>
+    </div>
+  );
+};
+
+export default CountryList;

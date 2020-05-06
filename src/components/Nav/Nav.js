@@ -12,28 +12,28 @@ const Nav = () => {
           className={styles.link}
           activeClassName={styles.activeLink}
         >
-          <li>Главная</li>
+          <li>Main</li>
         </NavLink>
         <NavLink
           to="charts"
           className={styles.link}
           activeClassName={styles.activeLink}
         >
-          <li>Графики</li>
+          <li>Charts</li>
         </NavLink>
         <NavLink
           to="map"
           className={styles.link}
           activeClassName={styles.activeLink}
         >
-          <li>Карта</li>
+          <li>Map</li>
         </NavLink>
         <NavLink
           to="news"
           className={styles.link}
           activeClassName={styles.activeLink}
         >
-          <li>Новости</li>
+          <li>News</li>
         </NavLink>
       </ul>
     </div>

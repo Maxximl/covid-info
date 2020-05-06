@@ -1,41 +1,40 @@
-import React, { Component } from 'react';
-import styles from './FullCountryInfo.module.css';
-import MiniCards from '../MiniCards/MiniCards';
-import CountryList from '../CountryList/CountryList';
-import VirusMap from '../VirusMap/VirusMap';
-import CountrySearch from '../CountrySearch/CountrySearch';
+import React, { useState } from "react";
+import styles from "./FullCountryInfo.module.css";
+import MiniCards from "../MiniCards/MiniCards";
+import CountryList from "../CountryList/CountryList";
+import VirusMap from "../VirusMap/VirusMap";
+import CountrySearch from "../CountrySearch/CountrySearch";
 
-export default class FullCountryInfo extends Component {
+const FullCountryInfo = () => {
+  const [state, setState] = useState({
+    country: "World",
+    searched: "",
+  });
 
-    state = {
-        country: 'World',
-        searched: "",
-    }
+  const handleSearching = (event) => {
+    setState({ ...state, searched: event.target.value });
+  };
 
-    handleSearching = (event) => {
-        this.setState({ searched: event.target.value });
-      };
-    
+  const onCountrySelected = (country) => {
+    setState({ ...state, country });
+  };
 
-    onCountrySelected = (country) => {
-        this.setState({country});
-    }
+  const { country, searched } = state;
+  return (
+    <div className={styles.container}>
+      <MiniCards country={country} />
+      <div>
+        <CountrySearch searched={searched} handleSearching={handleSearching} />
+        <CountryList
+          onCountrySelected={onCountrySelected}
+          searched={searched}
+        />
+      </div>
+      <div className={styles.map}>
+        <VirusMap onCountrySelected={onCountrySelected} zoom={0.2} />
+      </div>
+    </div>
+  );
+};
 
-    render() {
-        const { country, searched } = this.state;
-        return (
-            <div className={styles.container}>
-                <MiniCards country={country} />
-                <div>
-                    <CountrySearch searched={searched} handleSearching={this.handleSearching} />
-                    <CountryList onCountrySelected={this.onCountrySelected} searched={searched}/>
-                </div>
-                <div className={styles.map}>
-                    <VirusMap onCountrySelected={this.onCountrySelected} zoom={0.2}/>
-                </div>
-                
-            </div>
-        )
-    }
-
-}
+export default FullCountryInfo;

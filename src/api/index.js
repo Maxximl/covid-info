@@ -1,10 +1,11 @@
 const url = "https://covid19-server.chrismichael.now.sh/api/v1/AllReports";
-// const countryUrl =
-//   "https://covid19-server.chrismichael.now.sh/api/v1/ReportsByCountries/";
 const urlForTotal = "https://api.covid19api.com/summary";
 const urlDaily = "https://api.covid19api.com/country/";
 const urlNews =
   "https://newsapi.org/v2/top-headlines?country=ru&category=health&apiKey=07d9897b1d0d4094b3b1093134525cab";
+const urlMapData = "https://covid19-data.p.rapidapi.com/geojson-ww";
+const hostHeader = "covid19-data.p.rapidapi.com";
+const keyHeader = "781bcee0c5msh078c84f3a257bd2p1e7140jsn1348ca49402f";
 
 export const fetchData = async () => {
   try {
@@ -72,11 +73,11 @@ export const fetchCountriesList = async () => {
 
 export const fetchMapData = async () => {
   try {
-    const data = await fetch("https://covid19-data.p.rapidapi.com/geojson-ww", {
+    const data = await fetch(urlMapData, {
       method: "GET",
       headers: {
-        "x-rapidapi-host": "covid19-data.p.rapidapi.com",
-        "x-rapidapi-key": "781bcee0c5msh078c84f3a257bd2p1e7140jsn1348ca49402f",
+        "x-rapidapi-host": hostHeader,
+        "x-rapidapi-key": keyHeader,
       },
     }).then((response) => response.json());
     const modified = data.features
@@ -96,9 +97,10 @@ export const fetchMapData = async () => {
 export const fetchNews = async () => {
   try {
     const data = await fetch(urlNews).then((response) => response.json());
-    return data.articles.filter( article => article.description.indexOf('вирус') !== -1);
+    return data.articles.filter(
+      (article) => article.description.indexOf("вирус") !== -1
+    );
   } catch (err) {
     console.log(err);
   }
 };
-

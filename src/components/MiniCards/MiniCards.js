@@ -22,53 +22,65 @@ const MiniCards = ({ country }) => {
   }, [country]);
 
   const { loading, countryData } = data;
-  
-  return (
-    <div className={styles.container}>
+  const cardsParameters = [
+    {
+      type: "death",
+      name: "Deaths",
+      quantity: countryData ? countryData.TotalDeaths : "no data",
+      loading: loading,
+      icon: ripIcon,
+    },
+    {
+      type: "active",
+      name: "Active",
+      quantity: countryData ? countryData.ActiveCases : "no data",
+      loading: loading,
+      icon: activeIcon,
+    },
+    {
+      type: "cases",
+      name: "Cases",
+      quantity: countryData ? countryData.TotalCases : "no data",
+      loading: loading,
+      icon: casesIcon,
+    },
+    {
+      type: "today",
+      name: "Today",
+      quantity: countryData ? countryData.NewCases : "no data",
+      loading: loading,
+      icon: todayIcon,
+    },
+    {
+      type: "critical",
+      name: "Critical",
+      quantity: countryData ? countryData.Serious_Critical : "no data",
+      loading: loading,
+      icon: criticalIcon,
+    },
+    {
+      type: "recovered",
+      name: "Recovered",
+      quantity: countryData ? countryData.TotalRecovered : "no data",
+      loading: loading,
+      icon: recoveredIcon,
+    },
+  ];
+
+  const renderMiniCards = () => {
+    return cardsParameters.map((card) => (
       <MiniCard
-        type="death"
-        name="Deaths"
-        quantity={countryData ? countryData.TotalDeaths : "нет данных"}
-        loading={loading}
-        icon={ripIcon}
+        key={card.name}
+        type={card.type}
+        name={card.name}
+        quantity={card.quantity}
+        loading={card.loading}
+        icon={card.icon}
       />
-      <MiniCard
-        type="active"
-        name="Active"
-        quantity={countryData ? countryData.ActiveCases : "нет данных"}
-        loading={loading}
-        icon={activeIcon}
-      />
-      <MiniCard
-        type="cases"
-        name="Cases"
-        quantity={countryData ? countryData.TotalCases : "нет данных"}
-        loading={loading}
-        icon={casesIcon}
-      />
-      <MiniCard
-        type="today"
-        name="Today"
-        quantity={countryData ? countryData.NewCases : "нет данных"}
-        loading={loading}
-        icon={todayIcon}
-      />
-      <MiniCard
-        type="critical"
-        name="Critical"
-        quantity={countryData ? countryData.Serious_Critical : "нет данных"}
-        loading={loading}
-        icon={criticalIcon}
-      />
-      <MiniCard
-        type="recovered"
-        name="Recovered"
-        quantity={countryData ? countryData.TotalRecovered : "нет данных"}
-        loading={loading}
-        icon={recoveredIcon}
-      />
-    </div>
-  );
+    ));
+  };
+
+  return <div className={styles.container}>{renderMiniCards()}</div>;
 };
 
 export default MiniCards;

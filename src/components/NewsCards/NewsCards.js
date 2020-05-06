@@ -9,7 +9,7 @@ const NewsCards = () => {
   useEffect(() => {
     setNews(null);
     const fetchAPI = async () => {
-      setNews( await fetchNews() );
+      setNews(await fetchNews());
     };
 
     fetchAPI();
@@ -19,7 +19,7 @@ const NewsCards = () => {
     return newsList.map((item) => {
       return (
         <NewsCard
-        key={item.source.name}
+          key={item.source.name}
           url={item.url}
           urlToImage={item.urlToImage}
           title={item.title}
@@ -30,7 +30,7 @@ const NewsCards = () => {
     });
   };
 
-  if(!news) return <div className={styles.container}>Loading...</div>
+  if (!news) return <div className={styles.container}>Loading...</div>;
   return <div className={styles.container}>{renderNewsCards(news)}</div>;
 };
 

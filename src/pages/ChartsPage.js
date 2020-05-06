@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import styles from "./ChartsPage.module.css";
-import Chart from '../components/Chart/Chart';
-import ChartSearch from '../components/ChartSearch/ChartSearch';
+import Chart from "../components/Chart/Chart";
+import ChartSearch from "../components/ChartSearch/ChartSearch";
 
-
-const ChartsPage = ({data}) => {
-  const [countryName, setCountryName] = useState('');
+const ChartsPage = ({ data }) => {
+  const [countryName, setCountryName] = useState("");
 
   const handleSearch = (country) => {
-      setCountryName(country);
-  }
+    setCountryName(country);
+  };
 
   return (
     <div className={styles.container}>
-      <ChartSearch  handleSearch={handleSearch} />
+      <ChartSearch handleSearch={handleSearch} />
       <div className={styles.chartContainer}>
         <Chart country={countryName} />
       </div>
-      
     </div>
   );
 };

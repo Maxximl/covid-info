@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styles from "./VirusMap.module.css";
 import { fetchMapData } from "../../api";
-//import { YMaps, Map, Placemark } from "react-yandex-maps";
 import ReactMapGl, { Marker } from "react-map-gl";
 
 export default class VirusMap extends Component {
@@ -51,7 +50,7 @@ export default class VirusMap extends Component {
           <div
             className={styles.marker}
             style={{ width: `${circleSize}px`, height: `${circleSize}px` }}
-            onClick={() => this.handleCountrySelected(place)}
+            onClick={this.handleCountrySelected.bind(this, place)}
           ></div>
           <div className={styles.placeInfo}>
             <div className={styles.infoTitle}>{place.name}</div>

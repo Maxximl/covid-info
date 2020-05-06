@@ -3,7 +3,7 @@ import styles from "./Cards.module.css";
 import Card from "../Card/Card";
 import Spinner from "../Spinner/Spinner";
 
-const Cards =  ({ data }) => {
+const Cards = ({ data }) => {
   if (!data)
     return (
       <div className={styles.container}>
@@ -16,9 +16,9 @@ const Cards =  ({ data }) => {
   return (
     <div className={styles.container}>
       <div className={styles.cards}>
-        <Card header="Инфицирований" quantity={cases} type="infected" />
-        <Card header="Смертей" quantity={deaths} type="deaths" />
-        <Card header="Выздоровлений" quantity={recovered} type="recovered" />
+        <Card header="Infected" quantity={cases} type="infected" />
+        <Card header="Deaths" quantity={deaths} type="deaths" />
+        <Card header="Recovered" quantity={recovered} type="recovered" />
       </div>
     </div>
   );

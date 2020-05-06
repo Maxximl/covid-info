@@ -9,6 +9,10 @@ const ChartSearch = ({ handleSearch }) => {
     handleSearch(searched);
   };
 
+  const handleInputText = (event) => {
+    setSearched(event.target.value);
+  };
+
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
@@ -16,12 +20,12 @@ const ChartSearch = ({ handleSearch }) => {
           type="text"
           value={searched}
           className={styles.chartSearch}
-          onChange={(event) => setSearched(event.target.value)}
-          placeholder='Введите название страны'
+          onChange={handleInputText}
+          placeholder="Enter country name"
           required
         ></input>
         <button type="submit" className={styles.searchButton}>
-          Найти
+          Find
         </button>
       </form>
     </div>

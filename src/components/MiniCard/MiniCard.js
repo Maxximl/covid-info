@@ -4,13 +4,12 @@ import cn from "classnames";
 import MiniSpinner from "../MiniSpinner/MiniSpinner";
 
 const MiniCard = ({ type, name, quantity, loading, icon }) => {
-
-  const numbers = loading ? <MiniSpinner/> : quantity;
+  const numbers = loading ? <MiniSpinner /> : quantity;
   return (
     <div className={cn(styles.container, styles[`${type}`])}>
       <div className={styles.dataContainer}>
         <div>{numbers}</div>
-        <div className={styles.name}>{ name }</div>
+        <div className={styles.name}>{name}</div>
       </div>
       <div className={styles.imgContainer}>
         <img src={icon} alt="icon"></img>

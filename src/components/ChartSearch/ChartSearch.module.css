@@ -32,11 +32,13 @@
     background-color: #0199cb; 
     border: none;
     color: white;
-    padding: 15px 32px;
+    width: 100px;
+    padding-top: 12px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin-left: -130px;
     border: solid 2px #f2f2f2;
+    padding-bottom: 20px;
   }
