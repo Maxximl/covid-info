@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./ChartsPage.module.css";
-import Chart from "../components/Chart/Chart";
-import ChartSearch from "../components/ChartSearch/ChartSearch";
+import Chart from "../components/Chart";
+import ChartSearch from "../components/ChartSearch";
 
 const ChartsPage = ({ data }) => {
-  const [countryName, setCountryName] = useState("");
+  const [countryName, setCountryName] = useState("Russia");
 
   const handleSearch = (country) => {
     setCountryName(country);

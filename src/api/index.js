@@ -2,7 +2,7 @@ const url = "https://covid19-server.chrismichael.now.sh/api/v1/AllReports";
 const urlForTotal = "https://api.covid19api.com/summary";
 const urlDaily = "https://api.covid19api.com/country/";
 const urlNews =
-  "https://newsapi.org/v2/top-headlines?country=ru&category=health&apiKey=07d9897b1d0d4094b3b1093134525cab";
+  "http://newsapi.org/v2/top-headlines?country=&category=health&apiKey=07d9897b1d0d4094b3b1093134525cab";
 const urlMapData = "https://covid19-data.p.rapidapi.com/geojson-ww";
 const hostHeader = "covid19-data.p.rapidapi.com";
 const keyHeader = "781bcee0c5msh078c84f3a257bd2p1e7140jsn1348ca49402f";
@@ -11,7 +11,10 @@ export const fetchData = async () => {
   try {
     const data = await fetch(urlForTotal).then((r) => r.json());
     return data.Countries;
-  } catch (error) {}
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
 };
 
 export const fetchDaily = async (country) => {
@@ -27,36 +30,27 @@ export const fetchDaily = async (country) => {
     }));
     return modifiedData;
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    return [];
   }
 };
 
-export const fetchTotal = async () => {
+export const fetchCountryData = async (country, abortSignal) => {
   try {
-    const data = await fetch(`${urlForTotal}`).then((r) => r.json());
-    console.log(data);
-    const modifiedData = {
-      confirmed: data.Global.TotalConfirmed,
-      deaths: data.Global.TotalDeaths,
-      recovered: data.Global.TotalRecovered,
-      newConfirmed: data.Global.NewConfirmed,
-      newDeaths: data.Global.NewDeaths,
-      newRecovered: data.Global.NewRecovered,
-      date: data.Date,
-    };
-    return modifiedData;
-  } catch (error) {}
-};
-
-export const fetchCountryData = async (country) => {
-  try {
-    const data = await fetch(url).then((r) => r.json());
+    const data = await fetch(url, abortSignal).then((r) => r.json());
 
     const modifiedData = data.reports[0].table[0].filter(
       (item) => item.Country === country
     );
     return modifiedData[0];
-  } catch (error) {}
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      console.log('Fetch aborted');
+    } else {
+      console.error(err);
+    }
+    return [];
+  }
 };
 
 export const fetchCountriesList = async () => {
@@ -68,7 +62,15 @@ export const fetchCountriesList = async () => {
       Continent: item.Continent,
     }));
     return modifiedData;
-  } catch (error) {}
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      console.log('Fetch aborted');
+    } else {
+      console.error(err);
+    }
+   
+    return [];
+  }
 };
 
 export const fetchMapData = async () => {
@@ -89,18 +91,34 @@ export const fetchMapData = async () => {
         latitude: Number.parseFloat(item.latitude),
       }));
     return modified;
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.error(err);
+    return [];
   }
 };
 
-export const fetchNews = async () => {
+export const fetchNews = async (code) => {
   try {
-    const data = await fetch(urlNews).then((response) => response.json());
-    return data.articles.filter(
-      (article) => article.description.indexOf("вирус") !== -1
-    );
+    const data = await fetch(
+      urlNews.replace("country=", `country=${code}`)
+    ).then((response) => response.json());
+    return data.articles;
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    return [];
+  }
+};
+
+export const fetchCountries = async () => {
+  try {
+    const data = await fetch(urlForTotal).then((r) => r.json());
+    return data.Countries.map((item) => ({
+      country: item.Country,
+      code: item.CountryCode.toLowerCase(),
+      TotalConfirmed: item.TotalConfirmed,
+    }));
+  } catch (err) {
+    console.error(err);
+    return [];
   }
 };

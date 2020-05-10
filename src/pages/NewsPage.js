@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./NewsPage.module.css";
-import NewsCards from "../components/NewsCards/NewsCards";
-import CountryCards from "../components/CountryCards/CountryCards";
+import NewsCards from "../components/NewsCards";
+import CountriesComboBox from "../components/CountriesComboBox";
 
 const NewsPage = () => {
+
+ const [countryCode, setCountryCode] = useState('ru');
+
+ const handleSelectCountry = (code) => {
+  setCountryCode(code);
+ }
   return (
     <div className={styles.container}>
-      <CountryCards />
+      <CountriesComboBox handleSelectCountry={handleSelectCountry}/>
       <div className={styles.newsContainer}>
         <h2>News</h2>
-        <NewsCards />
+        <NewsCards countryCode={countryCode} />
       </div>
     </div>
   );

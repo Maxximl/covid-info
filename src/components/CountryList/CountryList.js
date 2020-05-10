@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./CountryList.module.css";
 import { fetchCountriesList } from "../../api";
-import CountryItem from "../CountryItem/CountryItem";
-import Spinner from "../Spinner/Spinner";
+import CountryItem from "../CountryItem";
+import Spinner from "../Spinner";
 
 const CountryList = ({ onCountrySelected, searched }) => {
   const [state, setState] = useState({
@@ -10,13 +10,21 @@ const CountryList = ({ onCountrySelected, searched }) => {
     selected: "World",
   });
 
+  const unmounted = useRef(false);
   useEffect(() => {
     const fetchAPI = async () => {
       const countries = await fetchCountriesList();
-      setState((state) => ({ ...state, countries }));
+      if(!unmounted.current) {
+        setState((state) => ({ ...state, countries }));
+      }
+      
     };
 
     fetchAPI();
+
+    return () => {
+      unmounted.current = true;
+    }
   }, []);
 
   const onItemSelected = (name) => {

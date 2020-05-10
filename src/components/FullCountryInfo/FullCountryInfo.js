@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "./FullCountryInfo.module.css";
-import MiniCards from "../MiniCards/MiniCards";
-import CountryList from "../CountryList/CountryList";
-import VirusMap from "../VirusMap/VirusMap";
-import CountrySearch from "../CountrySearch/CountrySearch";
+import MiniCards from "../MiniCards";
+import CountryList from "../CountryList";
+import VirusMap from "../VirusMap";
+import CountrySearch from "../CountrySearch";
 
 const FullCountryInfo = () => {
   const [state, setState] = useState({
@@ -31,7 +31,7 @@ const FullCountryInfo = () => {
         />
       </div>
       <div className={styles.map}>
-        <VirusMap onCountrySelected={onCountrySelected} zoom={0.2} />
+        <VirusMap onCountrySelected={onCountrySelected} zoom={0.2} country={country}/>
       </div>
     </div>
   );

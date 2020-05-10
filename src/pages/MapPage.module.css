@@ -1,9 +1,8 @@
-.container {
+.mapContainer {
     width: 80%;
     height: 600px;
     display: flex;
     justify-content: center;
-    margin-top: -400px;
     background-color: #FFF;
     border-radius: 20px;
     flex-wrap: wrap;
@@ -11,8 +10,11 @@
     box-sizing: border-box;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     overflow: hidden;
-
+    margin: 70px auto;
 }
 
-
+.container {
+    width: 100%;
+    margin-top: -300px;
+}
 

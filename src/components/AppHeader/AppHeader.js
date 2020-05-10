@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AppHeader.module.css";
-import Nav from "../Nav/Nav";
-import Logo from "../Logo/Logo";
+import Nav from "../Nav";
+import Logo from "../Logo";
 import { NavLink } from 'react-router-dom';
 
 const AppHeader = () => {

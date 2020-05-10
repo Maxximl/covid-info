@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MiniCard from "../MiniCard/MiniCard";
 import styles from "./MiniCards.module.css";
 import { fetchCountryData } from "../../api";
-
+import { useUnmounted } from "../../hooks/useUnmounted";
 import ripIcon from "./img/ripIcon.png";
 import activeIcon from "./img/activeIcon.png";
 import recoveredIcon from "./img/recoveredIcon.png";
@@ -11,15 +11,23 @@ import todayIcon from "./img/todayIcon.png";
 import casesIcon from "./img/casesIcon.png";
 
 const MiniCards = ({ country }) => {
-  const [data, setData] = useState({ countryData: null, loading: false });
+  const [data, setData] = useState({ countryData: [], loading: false });
+
+  const unmounted = useUnmounted();
   useEffect(() => {
-    setData({ data: null, loading: true });
+    setData({ data: [], loading: true });
     const fetchAPI = async () => {
-      setData({ countryData: await fetchCountryData(country), loading: false });
+      const countryData = await fetchCountryData(country);
+      if (!unmounted.current) {
+        setData({
+          countryData: countryData,
+          loading: false,
+        });
+      }
     };
 
     fetchAPI();
-  }, [country]);
+  }, [country, unmounted]);
 
   const { loading, countryData } = data;
   const cardsParameters = [

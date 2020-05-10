@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import CountryCard from "../CountryCard/CountryCard";
+import CountryCard from "../CountryCard";
 import styles from "./CountryCards.module.css";
-import Spinner from "../Spinner/Spinner";
-import { fetchData } from "../../api/index";
+import Spinner from "../Spinner";
+import { fetchData } from "../../api";
 import { getTopConfirmedCountries } from "../../utils/topConfirmedCountries";
 
-const CountryCards = () => {
+const CountryCards = ({ onCountrySelected }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -33,11 +33,13 @@ const CountryCards = () => {
         cases={TotalConfirmed}
         deaths={TotalDeaths}
         recovered={TotalRecovered}
+        handleCardClick={onCountrySelected}
       />
     );
   });
   return (
     <div className={styles.topCountries}>
+      <h2>Top  5 confrimed countries</h2>
       <div className={styles.cards}>{topCountries}</div>
     </div>
   );

@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import styles from "./MapPage.module.css";
-import VirusMap from "../components/VirusMap/VirusMap";
+import VirusMap from "../components/VirusMap";
+import CountryCards from "../components/CountryCards";
 
-
-const StatisticsPage = ({data}) => {
-  const [countryName, setCountryName] = useState('');
+const MapPage = () => {
+  const [countryName, setCountryName] = useState("World");
 
   const onCountrySelected = (country) => {
-      setCountryName(country);
-  }
+    setCountryName(country);
+  };
 
   return (
     <div className={styles.container}>
-      <VirusMap onCountrySelected={onCountrySelected} zoom={1} />
+      <CountryCards onCountrySelected={onCountrySelected}/>
+      <div className={styles.mapContainer}>
+        <VirusMap onCountrySelected={onCountrySelected} zoom={1} country={countryName}/>
+      </div>
     </div>
   );
 };
 
-export default StatisticsPage;
+export default MapPage;

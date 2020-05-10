@@ -1,5 +1,5 @@
 import React from "react";
-import FullCountryInfo from "../components/FullCountryInfo/FullCountryInfo";
+import FullCountryInfo from "../components/FullCountryInfo";
 const SearchPage = () => {
   return <FullCountryInfo />;
 };

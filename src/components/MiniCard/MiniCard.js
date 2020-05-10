@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MiniCard.module.css";
 import cn from "classnames";
-import MiniSpinner from "../MiniSpinner/MiniSpinner";
+import MiniSpinner from "../MiniSpinner";
 
 const MiniCard = ({ type, name, quantity, loading, icon }) => {
   const numbers = loading ? <MiniSpinner /> : quantity;
