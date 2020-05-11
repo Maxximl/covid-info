@@ -4,7 +4,7 @@ import minispinner from "./img/loader.gif";
 const MiniSpinner = () => {
   return (
     <div>
-      <img src={minispinner} alt=""></img>
+      <img src={minispinner} alt="minispinner"></img>
     </div>
   );
 };

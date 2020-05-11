@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "./CountryCard.module.css";
 import CountUp from "react-countup";
-const CountryCard = ({ country, cases, deaths, recovered, handleCardClick }) => {
+const CountryCard = ({
+  country,
+  cases,
+  deaths,
+  recovered,
+  handleCardClick,
+}) => {
   const handleClick = () => {
-
     handleCardClick(country);
-  }
+  };
   return (
     <div className={styles.card} onClick={handleClick}>
       <div className={styles.countryName}>{country}</div>

@@ -1,17 +1,18 @@
 import React from "react";
 import styles from "./NewsCard.module.css";
-import { limitTextLength } from '../../utils/limitTextLength';
+import { limitTextLength } from "../../utils/limitTextLength";
 
 const NewsCard = ({ url, urlToImage, title, description, source }) => {
-
   return (
     <div className={styles.container}>
-      <a href={url} target='_blank' rel="noopener noreferrer">
+      <a href={url} target="_blank" rel="noopener noreferrer">
         <div className={styles.image}>
-          <img src={urlToImage} alt=""></img>
+          <img src={urlToImage} alt="news_photo"></img>
         </div>
         <div className={styles.content}>
-          <div className={styles.title}>{title ? limitTextLength(title) : null}</div>
+          <div className={styles.title}>
+            {title ? limitTextLength(title) : null}
+          </div>
           <div className={styles.description}>
             {description ? limitTextLength(description) : null}
           </div>

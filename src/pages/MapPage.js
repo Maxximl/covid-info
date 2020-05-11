@@ -12,9 +12,13 @@ const MapPage = () => {
 
   return (
     <div className={styles.container}>
-      <CountryCards onCountrySelected={onCountrySelected}/>
+      <CountryCards onCountrySelected={onCountrySelected} />
       <div className={styles.mapContainer}>
-        <VirusMap onCountrySelected={onCountrySelected} zoom={1} country={countryName}/>
+        <VirusMap
+          onCountrySelected={onCountrySelected}
+          zoom={1}
+          country={countryName}
+        />
       </div>
     </div>
   );

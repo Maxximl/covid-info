@@ -1,15 +1,15 @@
 .countrySearch {
-    width: 90%;
-    height: 40px;
-    margin: 0 10px;
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    border: solid 2px #f2f2f2;
-    font-size: 18px;
-    padding: 0 10px;
-  }
+  width: 90%;
+  height: 40px;
+  margin: 0 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  border: solid 2px #f2f2f2;
+  font-size: 18px;
+  padding: 0 10px;
+}
 
-  .countrySearch:focus {
-    border: solid 2px#6651bb;
-  }
+.countrySearch:focus {
+  border: solid 2px#6651bb;
+}

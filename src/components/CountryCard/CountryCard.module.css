@@ -1,59 +1,58 @@
 .card {
-    background-image: url('../../images/country-card.jpg');
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    padding: 10px 10px;
-    box-sizing: border-box;
-    margin: 0 20px;
-    color: #FFF;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    margin-bottom: 10px;
-    cursor: pointer;
+  background-image: url("../../images/country-card.jpg");
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  margin: 0 20px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .countryName {
-    font-size: 30px;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    height: 110px;
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 110px;
 }
 
-
 .stat {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .countryRecovered {
-    text-align: center;
-    font-size: 20px;
-    border-bottom: solid 2px #31801a;
+  text-align: center;
+  font-size: 20px;
+  border-bottom: solid 2px #31801a;
 }
 
 .statContainer {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .countryCases {
-    font-size: 20px;
-    border-bottom: solid 2px #7f7fff;
+  font-size: 20px;
+  border-bottom: solid 2px #7f7fff;
 }
 
 .countryDeaths {
-    font-size: 20px;
-    border-bottom: solid 2px #ff7f7f;
+  font-size: 20px;
+  border-bottom: solid 2px #ff7f7f;
 }
 
 .favoritePanel {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .favoritePanel img {
-    cursor: pointer;
+  cursor: pointer;
 }

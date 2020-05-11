@@ -4,15 +4,14 @@ import NewsCards from "../components/NewsCards";
 import CountriesComboBox from "../components/CountriesComboBox";
 
 const NewsPage = () => {
+  const [countryCode, setCountryCode] = useState("ru");
 
- const [countryCode, setCountryCode] = useState('ru');
-
- const handleSelectCountry = (code) => {
-  setCountryCode(code);
- }
+  const handleSelectCountry = (code) => {
+    setCountryCode(code);
+  };
   return (
     <div className={styles.container}>
-      <CountriesComboBox handleSelectCountry={handleSelectCountry}/>
+      <CountriesComboBox handleSelectCountry={handleSelectCountry} />
       <div className={styles.newsContainer}>
         <h2>News</h2>
         <NewsCards countryCode={countryCode} />

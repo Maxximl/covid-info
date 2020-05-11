@@ -7,7 +7,7 @@ const CountrySearch = ({ searched, handleSearching }) => {
       className={styles.countrySearch}
       value={searched}
       onChange={handleSearching}
-      placeholder='Enter contry name'
+      placeholder="Enter country name"
     />
   );
 };

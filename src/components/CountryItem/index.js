@@ -1,3 +1,3 @@
-import CountryItem from './CountryItem';
+import CountryItem from "./CountryItem";
 
 export default CountryItem;

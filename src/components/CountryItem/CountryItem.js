@@ -4,8 +4,8 @@ import cn from "classnames";
 
 const CountryItem = ({ country, onClickHandle, isSelected }) => {
   const handleItemClick = () => {
-    onClickHandle(country.Country)
-  }
+    onClickHandle(country.Country);
+  };
   return (
     <div
       key={country.ISO2}

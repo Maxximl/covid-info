@@ -3,39 +3,43 @@ import styles from "./Nav.module.css";
 import { NavLink } from "react-router-dom";
 
 const Nav = () => {
+  const routes = [
+    {
+      to: "main",
+      exact: true,
+      name: "Main",
+    },
+    {
+      to: "charts",
+      exact: true,
+      name: "Charts",
+    },
+    {
+      to: "map",
+      exact: true,
+      name: "Map",
+    },
+    {
+      to: "news",
+      exact: true,
+      name: "News",
+    },
+  ];
+  const renderRoutes = () => {
+    return routes.map((route) => (
+      <NavLink
+        to={route.to}
+        exact={route.exact}
+        className={styles.link}
+        activeClassName={styles.activeLink}
+      >
+        <li>{route.name}</li>
+      </NavLink>
+    ));
+  };
   return (
     <div className={styles.container}>
-      <ul className={styles.navbar}>
-        <NavLink
-          to="/"
-          exact
-          className={styles.link}
-          activeClassName={styles.activeLink}
-        >
-          <li>Main</li>
-        </NavLink>
-        <NavLink
-          to="charts"
-          className={styles.link}
-          activeClassName={styles.activeLink}
-        >
-          <li>Charts</li>
-        </NavLink>
-        <NavLink
-          to="map"
-          className={styles.link}
-          activeClassName={styles.activeLink}
-        >
-          <li>Map</li>
-        </NavLink>
-        <NavLink
-          to="news"
-          className={styles.link}
-          activeClassName={styles.activeLink}
-        >
-          <li>News</li>
-        </NavLink>
-      </ul>
+      <ul className={styles.navbar}>{renderRoutes()}</ul>
     </div>
   );
 };

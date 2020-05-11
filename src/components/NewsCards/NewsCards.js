@@ -30,8 +30,9 @@ const NewsCards = ({ countryCode }) => {
     });
   };
 
-  if(!news) return <div className={styles.container}>Loading...</div>;
-  if (news.length === 0) return <div className={styles.container}>No news :(</div>;
+  if (!news) return <div className={styles.container}>Loading...</div>;
+  if (news.length === 0)
+    return <div className={styles.container}>No news :(</div>;
   return <div className={styles.container}>{renderNewsCards(news)}</div>;
 };
 

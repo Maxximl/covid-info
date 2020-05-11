@@ -1,35 +1,35 @@
 .container {
-    width: 170px;
-    height: 90px;
-    border-radius: 10px;
-    margin: 0 10px;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #FFF;
+  width: 170px;
+  height: 90px;
+  border-radius: 10px;
+  margin: 0 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
 }
 
 .name {
-    color: #cbc2ca;
+  color: #cbc2ca;
 }
 
 .container.death {
-    background-color: #ec3232;
+  background-color: #ec3232;
 }
 .container.active {
-    background-color: #1c18ec;
+  background-color: #1c18ec;
 }
 .container.cases {
-    background-color: #ad12d4;
+  background-color: #ad12d4;
 }
 .container.today {
-    background-color: #b13636;
+  background-color: #b13636;
 }
 .container.recovered {
-    background-color: #492eb5;
+  background-color: #492eb5;
 }
 .container.critical {
-    background-color: #0a8e8e;
+  background-color: #0a8e8e;
 }

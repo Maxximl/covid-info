@@ -1,3 +1,3 @@
-import MiniCards from './MiniCards';
+import MiniCards from "./MiniCards";
 
 export default MiniCards;

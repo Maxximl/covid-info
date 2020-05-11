@@ -1,7 +1,6 @@
 export const limitTextLength = (text) => {
-    let sliced = text.slice(0, 100);
-    if (sliced.length < text.length) {
-      sliced += "...";
-    }
-    return sliced;
-  };
+  if (text.length > 100) {
+    return `${text.slice(0, 100)}...`;
+  }
+  return text;
+};

@@ -39,7 +39,7 @@ const CountryCards = ({ onCountrySelected }) => {
   });
   return (
     <div className={styles.topCountries}>
-      <h2>Top  5 confrimed countries</h2>
+      <h2>Top 5 infected countries</h2>
       <div className={styles.cards}>{topCountries}</div>
     </div>
   );

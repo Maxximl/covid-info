@@ -1,3 +1,3 @@
-import ChartSearch from './ChartSearch';
+import ChartSearch from "./ChartSearch";
 
 export default ChartSearch;

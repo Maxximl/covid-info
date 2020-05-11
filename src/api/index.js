@@ -2,7 +2,7 @@ const url = "https://covid19-server.chrismichael.now.sh/api/v1/AllReports";
 const urlForTotal = "https://api.covid19api.com/summary";
 const urlDaily = "https://api.covid19api.com/country/";
 const urlNews =
-  "http://newsapi.org/v2/top-headlines?country=&category=health&apiKey=07d9897b1d0d4094b3b1093134525cab";
+  "https://newsapi.org/v2/top-headlines?country=&category=health&apiKey=07d9897b1d0d4094b3b1093134525cab";
 const urlMapData = "https://covid19-data.p.rapidapi.com/geojson-ww";
 const hostHeader = "covid19-data.p.rapidapi.com";
 const keyHeader = "781bcee0c5msh078c84f3a257bd2p1e7140jsn1348ca49402f";
@@ -44,8 +44,8 @@ export const fetchCountryData = async (country, abortSignal) => {
     );
     return modifiedData[0];
   } catch (err) {
-    if (err.name === 'AbortError') {
-      console.log('Fetch aborted');
+    if (err.name === "AbortError") {
+      console.log("Fetch aborted");
     } else {
       console.error(err);
     }
@@ -63,12 +63,12 @@ export const fetchCountriesList = async () => {
     }));
     return modifiedData;
   } catch (err) {
-    if (err.name === 'AbortError') {
-      console.log('Fetch aborted');
+    if (err.name === "AbortError") {
+      console.log("Fetch aborted");
     } else {
       console.error(err);
     }
-   
+
     return [];
   }
 };

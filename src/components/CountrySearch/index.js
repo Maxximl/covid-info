@@ -1,3 +1,3 @@
-import CountrySearch from './CountrySearch';
+import CountrySearch from "./CountrySearch";
 
 export default CountrySearch;

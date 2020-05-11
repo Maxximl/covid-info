@@ -31,7 +31,11 @@ const FullCountryInfo = () => {
         />
       </div>
       <div className={styles.map}>
-        <VirusMap onCountrySelected={onCountrySelected} zoom={0.2} country={country}/>
+        <VirusMap
+          onCountrySelected={onCountrySelected}
+          zoom={0.2}
+          country={country}
+        />
       </div>
     </div>
   );

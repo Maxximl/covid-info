@@ -14,17 +14,16 @@ const CountryList = ({ onCountrySelected, searched }) => {
   useEffect(() => {
     const fetchAPI = async () => {
       const countries = await fetchCountriesList();
-      if(!unmounted.current) {
+      if (!unmounted.current) {
         setState((state) => ({ ...state, countries }));
       }
-      
     };
 
     fetchAPI();
 
     return () => {
       unmounted.current = true;
-    }
+    };
   }, []);
 
   const onItemSelected = (name) => {

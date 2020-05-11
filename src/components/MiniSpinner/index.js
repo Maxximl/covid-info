@@ -1,3 +1,3 @@
-import MiniSpinner from './MiniSpinner';
+import MiniSpinner from "./MiniSpinner";
 
 export default MiniSpinner;

@@ -1,3 +1,3 @@
-import FullCountryInfo from './FullCountryInfo';
+import FullCountryInfo from "./FullCountryInfo";
 
 export default FullCountryInfo;
