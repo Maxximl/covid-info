@@ -12,6 +12,7 @@
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
+  transition: all 1s;
 }
 
 .selected {
