@@ -15,7 +15,7 @@ const CountryList = ({ onCountrySelected, searched }) => {
     const fetchAPI = async () => {
       const countries = await fetchCountriesList();
       if (!unmounted.current) {
-        setState((state) => ({ ...state, countries }));
+        setState({ ...state, countries });
       }
     };
 

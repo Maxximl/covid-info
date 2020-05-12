@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const AppHeader = () => {
   return (
     <div className={styles.header}>
-      <NavLink to="main">
+      <NavLink to="/">
         <Logo />
       </NavLink>
       <Nav />

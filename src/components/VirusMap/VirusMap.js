@@ -66,6 +66,18 @@ export default class VirusMap extends Component {
       };
     });
   };
+
+  getInfoCardTemplate = (place) => {
+    return (
+      <div>
+        <h3 className={styles.infoTitle}>{place.name} </h3>
+        <div>{`Confirmed: ${place.confirmed}`}</div>
+        <div>{`Deaths: ${place.deaths}`}</div>
+        <div>{`Recovered: ${place.recovered}`}</div>
+      </div>
+    );
+  };
+
   renderPoints = () => {
     const { places, selectedCountry } = this.state;
     return places.map((place, id) => {
@@ -77,12 +89,7 @@ export default class VirusMap extends Component {
             latitude={place.latitude}
             longitude={place.longitude}
           >
-            <div>
-              <h3 className={styles.infoTitle}>{place.name} </h3>
-              <div>{`Confirmed: ${place.confirmed}`}</div>
-              <div>{`Deaths: ${place.deaths}`}</div>
-              <div>{`Recovered: ${place.recovered}`}</div>
-            </div>
+            {this.getInfoCardTemplate(place)}
           </Popup>
         ) : null;
       return (
@@ -93,16 +100,8 @@ export default class VirusMap extends Component {
               style={{ width: `${circleSize}px`, height: `${circleSize}px` }}
               onClick={() => this.handleCountrySelected(place)}
             ></div>
-            <div
-              className={styles.placeInfo}
-              onClick={this.handlePlaceInfoClick}
-            >
-              <div className={styles.infoTitle}>{place.name} </div>
-              <div className={styles.statistics}>
-                <div>{`Confirmed: ${place.confirmed}`}</div>
-                <div>{`Deaths: ${place.deaths}`}</div>
-                <div>{`Recovered: ${place.recovered}`}</div>
-              </div>
+            <div className={styles.placeInfo}>
+              {this.getInfoCardTemplate(place)}
             </div>
           </Marker>
           {popup}

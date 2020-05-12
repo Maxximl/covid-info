@@ -17,26 +17,27 @@ const CountryCards = ({ onCountrySelected }) => {
     fetchAPI();
   }, []);
 
-  if (!data)
-    return (
-      <div className={styles.topCountries}>
-        <Spinner />
-      </div>
-    );
-
-  const topCountries = getTopConfirmedCountries(data, 5).map((item) => {
-    const { Country, TotalConfirmed, TotalDeaths, TotalRecovered } = item;
-    return (
-      <CountryCard
-        key={Country}
-        country={Country}
-        cases={TotalConfirmed}
-        deaths={TotalDeaths}
-        recovered={TotalRecovered}
-        handleCardClick={onCountrySelected}
-      />
-    );
-  });
+  const topCountries = data ? (
+    data.length ? (
+      getTopConfirmedCountries(data, 5).map((item) => {
+        const { Country, TotalConfirmed, TotalDeaths, TotalRecovered } = item;
+        return (
+          <CountryCard
+            key={Country}
+            country={Country}
+            cases={TotalConfirmed}
+            deaths={TotalDeaths}
+            recovered={TotalRecovered}
+            handleCardClick={onCountrySelected}
+          />
+        );
+      })
+    ) : (
+      <h2>No data :(</h2>
+    )
+  ) : (
+    <Spinner />
+  );
   return (
     <div className={styles.topCountries}>
       <h2>Top 5 infected countries</h2>

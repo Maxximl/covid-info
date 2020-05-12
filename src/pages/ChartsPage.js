@@ -3,7 +3,7 @@ import styles from "./ChartsPage.module.css";
 import Chart from "../components/Chart";
 import ChartSearch from "../components/ChartSearch";
 
-const ChartsPage = ({ data }) => {
+const ChartsPage = () => {
   const [countryName, setCountryName] = useState("Russia");
 
   const handleSearch = (country) => {

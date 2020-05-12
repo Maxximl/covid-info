@@ -11,14 +11,14 @@ import NotFoundPage from "./pages/NotFoundPage";
 const App = () => {
   return (
     <div className={styles.container}>
-      <Router>
+      <Router basename='/covid-info/'>
         <div className={styles.headerContainer}>
           <div className={styles.bg}>
             <AppHeader />
           </div>
         </div>
         <Switch>
-          <Route exact path="/main" component={MainPage} />
+          <Route exact path="/" component={MainPage} />
           <Route exact path="/charts" component={ChartsPage} />
           <Route exact path="/map" component={MapPage} />
           <Route exact path="/news" component={NewsPage} />

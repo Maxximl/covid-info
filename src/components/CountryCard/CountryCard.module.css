@@ -28,7 +28,7 @@
 .countryRecovered {
   text-align: center;
   font-size: 20px;
-  border-bottom: solid 2px #31801a;
+  color: #6af8aa;
 }
 
 .statContainer {
@@ -39,12 +39,14 @@
 
 .countryCases {
   font-size: 20px;
-  border-bottom: solid 2px #7f7fff;
+  color: #2e2eb4;
+  display: flex;
+  justify-content: center;
 }
 
 .countryDeaths {
   font-size: 20px;
-  border-bottom: solid 2px #ff7f7f;
+  color: #fb9292;
 }
 
 .favoritePanel {

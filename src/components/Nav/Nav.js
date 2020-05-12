@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Nav = () => {
   const routes = [
     {
-      to: "main",
+      to: "/",
       exact: true,
       name: "Main",
     },
@@ -28,6 +28,7 @@ const Nav = () => {
   const renderRoutes = () => {
     return routes.map((route) => (
       <NavLink
+        key={route.name}
         to={route.to}
         exact={route.exact}
         className={styles.link}
