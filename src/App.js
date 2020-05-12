@@ -11,7 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 const App = () => {
   return (
     <div className={styles.container}>
-      <Router>
+      <Router basename='/covid-info/'>
         <div className={styles.headerContainer}>
           <div className={styles.bg}>
             <AppHeader />
