@@ -4,10 +4,9 @@ import { fetchCountriesList } from "../../api";
 import CountryItem from "../CountryItem";
 import Spinner from "../Spinner";
 
-const CountryList = ({ onCountrySelected, searched }) => {
+const CountryList = ({ onCountrySelected, searched, selected }) => {
   const [state, setState] = useState({
     countries: [],
-    selected: "World",
   });
 
   const unmounted = useRef(false);
@@ -27,12 +26,10 @@ const CountryList = ({ onCountrySelected, searched }) => {
   }, []);
 
   const onItemSelected = (name) => {
-    setState({ ...state, selected: name });
     onCountrySelected(name);
   };
 
   const renderList = (countries) => {
-    const { selected } = state;
 
     return countries.map((country, i) => {
       return (

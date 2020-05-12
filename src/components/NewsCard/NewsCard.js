@@ -11,10 +11,10 @@ const NewsCard = ({ url, urlToImage, title, description, source }) => {
         </div>
         <div className={styles.content}>
           <div className={styles.title}>
-            {title ? limitTextLength(title) : null}
+            {title ? limitTextLength(title, 90) : null}
           </div>
           <div className={styles.description}>
-            {description ? limitTextLength(description) : null}
+            {description ? limitTextLength(description, 100) : null}
           </div>
           <div className={styles.source}>{source}</div>
         </div>

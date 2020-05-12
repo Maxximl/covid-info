@@ -1,6 +1,6 @@
-export const limitTextLength = (text) => {
-  if (text.length > 100) {
-    return `${text.slice(0, 100)}...`;
+export const limitTextLength = (text, len) => {
+  if (text.length > len) {
+    return `${text.slice(0, len)}...`;
   }
   return text;
 };

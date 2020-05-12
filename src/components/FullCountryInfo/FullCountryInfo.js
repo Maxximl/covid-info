@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styles from "./FullCountryInfo.module.css";
 import MiniCards from "../MiniCards";
 import CountryList from "../CountryList";
@@ -9,17 +9,22 @@ const FullCountryInfo = () => {
   const [state, setState] = useState({
     country: "World",
     searched: "",
+    selected: ''
   });
 
   const handleSearching = (event) => {
     setState({ ...state, searched: event.target.value });
   };
+ 
+  // const onCountrySelected = useCallback((country) => {
+  //   setState({ ...state, country })
+  // }, [state, setState]);
 
-  const onCountrySelected = (country) => {
-    setState({ ...state, country });
-  };
-
-  const { country, searched } = state;
+  const onCountrySelected = useCallback((country) => {
+    setState({ ...state, selected: country, country })
+  }, [state, setState]);
+  
+  const { country, searched,selected } = state;
   return (
     <div className={styles.container}>
       <MiniCards country={country} />
@@ -28,6 +33,7 @@ const FullCountryInfo = () => {
         <CountryList
           onCountrySelected={onCountrySelected}
           searched={searched}
+          selected={selected}
         />
       </div>
       <div className={styles.map}>
