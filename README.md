@@ -1,5 +1,5 @@
 
-maxximl.github.io/covid-info/
+https://maxximl.github.io/covid-info/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
